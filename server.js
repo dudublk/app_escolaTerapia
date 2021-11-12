@@ -30,7 +30,7 @@ mongoose.connect('mongodb+srv://dudusagitt:sagitt039746@cluster0.v7beo.mongodb.n
 
 
 // LISTAR CURSOS CADASTRADOS
-app.get('/', (req, res, next) => {
+app.get('/cursos', (req, res, next) => {
 
     Cursos.find({}).then((cursos) =>{
         return res.json(cursos);
