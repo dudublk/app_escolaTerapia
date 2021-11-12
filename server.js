@@ -183,6 +183,6 @@ app.delete("/formulario/:id", (req, res) => {
 
 
 // RODANDO O SERVIDOR
-app.listen(5000, () =>{
-    console.log("Servidor iniciado"); 
-});
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  });
