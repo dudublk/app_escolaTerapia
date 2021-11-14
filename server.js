@@ -36,7 +36,7 @@ mongoose.connect('mongodb+srv://dudusagitt:sagitt039746@cluster0.v7beo.mongodb.n
 // LISTAR CURSOS CADASTRADOS
 app.get('/cursos', (req, res, next) => {
 
-    Cursos.find({}).then((cursos) =>{
+  const cursos =  Cursos.find({}).then((cursos) =>{
         return res.json(cursos);
     }).catch((erro) =>{
         return res.status(400).json({
@@ -111,7 +111,7 @@ app.delete("/cursos/:id", (req, res) => {
 // LISTAR CURSOS CADASTRADOS
 app.get("/formulario", (req, res) => {
 
-    Formulario.find({}).then((formulario) =>{
+    const formulario =  Formulario.find({}).then((formulario) =>{
         return res.json(formulario);
     }).catch((erro) =>{
         return res.status(400).json({
