@@ -36,7 +36,7 @@ mongoose.connect('mongodb+srv://dudusagitt:sagitt039746@cluster0.v7beo.mongodb.n
 // LISTAR CURSOS CADASTRADOS
 app.get('/cursos', (req, res, next) => {
 
-  const cursos =  Cursos.find({}).then((cursos) =>{
+  Cursos.find({}).then((cursos) =>{
         return res.json(cursos);
     }).catch((erro) =>{
         return res.status(400).json({
@@ -111,7 +111,7 @@ app.delete("/cursos/:id", (req, res) => {
 // LISTAR CURSOS CADASTRADOS
 app.get("/formulario", (req, res) => {
 
-    const formulario =  Formulario.find({}).then((formulario) =>{
+    Formulario.find({}).then((formulario) =>{
         return res.json(formulario);
     }).catch((erro) =>{
         return res.status(400).json({
@@ -156,7 +156,7 @@ app.post("/formulario", (req, res) => {
 // ATUALIZAR FORMULARIO
 
 app.put("/formulario/:id", (req, res) => {
-    const formulario = Formulario.updateOne({ _id: req.params.id}, req.body, (erro) => {
+    Formulario.updateOne({ _id: req.params.id}, req.body, (erro) => {
         if(erro) return res.status(400).json({
             error: true,
             message: "Erro ao editar"
