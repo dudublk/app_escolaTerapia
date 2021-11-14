@@ -12,8 +12,12 @@ const app = express();
 app.use(express.json());
 
 app.use((req, res, next) => {
-    res.header("Acess-Control-Allow-Origin", "*");
-    res.header("Acess-Control-Allow-Methods", "GET,PUT,POST,DELETE")
+
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
     app.use(cors());
     next();
 })
