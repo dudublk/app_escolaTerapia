@@ -5,10 +5,21 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-//const port = process.env.PORT || 2121;
-
-app.use(cors());
 app.use(express.json());
+//const port = process.env.PORT || 2121;
+app.use((req, res, next) => {
+
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,Content-type, X-PINGOTHER, Authorization');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+    app.use(cors());
+    next();
+});
+
+
+
 
 const uri = process.env.ATLAS_URI;
 const connection = mongoose.connection;
