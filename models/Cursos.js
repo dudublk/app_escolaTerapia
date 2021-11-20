@@ -8,11 +8,17 @@ const Cursos = new Schema({
     },
     descricao: {
         type: String,
-        required: true
+        required: false
+    },
+    image: {
+        type: String,
+        require: false
     }
+
 },
 {
     timestamps: true,
 });
 
-mongoose.model('cursos', Cursos);
+//mongoose.model('cursos', Cursos);
+module.exports = mongoose.model("cursos", Cursos)
